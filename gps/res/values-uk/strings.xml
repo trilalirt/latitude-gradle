@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+
+    <string name="app_name">Latitude</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="Share_your_location">Вiдправити координати</string>
+    <string name="unknown">невiдомо</string>
+    <string name="Longitude">Довгота: </string>
+    <string name="Latitude">Широта: </string>
+    <string name="I_am_at_this">Мої</string>
+    <string name="and_this">i</string>
+    <string name="and_this_is_link_to_the_map">також можна бачити моє мiсцезнаходження на мапi:</string>
+    <string name="I_want_to_share_this_location_with_you">Хочу подiлитись цими координатами:</string>
+    <string name="Marker_Latitude">Широта маркера:</string>
+    <string name="Marker_Longitude">Довгота маркера:</string>
+    <string name="Share_blue_marker_location">Вiдправити координати маркера</string>
+    <string name="You_are_here">Ви знаходитесь тут!</string>
+
+
+
+</resources>

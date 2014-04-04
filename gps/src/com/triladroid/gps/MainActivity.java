@@ -106,7 +106,7 @@ public class MainActivity extends Activity implements LocationListener{
     }*/
     
     //mylocation = new LatLng(0,0);
-    mylocationmarker = map.addMarker(new MarkerOptions().position(new LatLng(0,0)).title("You are here!"));
+    mylocationmarker = map.addMarker(new MarkerOptions().position(new LatLng(0,0)).title(getString(R.string.You_are_here)));
      
   //share
     Button getButton = (Button)findViewById(R.id.sh);
@@ -209,8 +209,8 @@ public void onLocationChanged(Location arg0) {
     longitude = arg0.getLongitude();
     mylocationlocation = arg0;
 	
-    String strLongitude = "Longitude: " + MyConvert(arg0.getLongitude());
-    String strLatitude = "Latitude: " + MyConvert(arg0.getLatitude());
+    String strLongitude = getString(R.string.Longitude) + " "+ MyConvert(arg0.getLongitude());
+    String strLatitude = getString(R.string.Latitude) + " " + MyConvert(arg0.getLatitude());
     
     latituteField.setText(strLatitude);
     longitudeField.setText(strLongitude);
@@ -315,14 +315,14 @@ private OnClickListener ShareListener = new OnClickListener()
            {
         	   
         	   
-        	   sharetext = "I'm at this latitude " + strlatitude + " and this longitude " + strlongitute + " and this is link to the map: http://maps.google.com/maps?ll=" + latitude + "," + longitude;
+        	   sharetext = getString(R.string.I_am_at_this) +" " + strlatitude + " " + getString(R.string.and_this) + " " + strlongitute + " "+getString(R.string.and_this_is_link_to_the_map) +" " + "http://maps.google.com/maps?&z=10&q=" + latitude + "+" + longitude + "+(Pool+Location)&mrt=yp";
            }
            else
            {
-        	   sharetext = "I want to share this location with you " + "http://maps.google.com/maps?ll=" +  pointt.latitude + "," + pointt.longitude;
+        	   sharetext = getString(R.string.I_want_to_share_this_location_with_you) + " " + "http://maps.google.com/maps?&z=10&q=" + pointt.latitude + "+" + pointt.longitude + "+(Pool+Location)&mrt=yp";
            }
            
-        	   emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, sharetext);
+        	   emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, sharetext);http://maps.google.com/maps?&z=10&q=36.26577+-92.54324+(Pool+Location)&mrt=yp
            //emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, getResources().getString(R.string.recommendation_body));
            startActivity(emailIntent);
 			
@@ -345,7 +345,7 @@ private OnClickListener ShareListener = new OnClickListener()
 				markerLng.setVisibility(View.GONE);
 				
 				Button getButton = (Button)findViewById(R.id.sh);
-				getButton.setText("Share your location");
+				getButton.setText(getString(R.string.Share_your_location));
 			}
 			mylocation = new LatLng(latitude, longitude);
 		    mylocationmarker.setPosition(mylocation);
@@ -375,8 +375,8 @@ private OnClickListener ShareListener = new OnClickListener()
 		customlocationmarker.setPosition(point);
 		pointt = point;
 		
-		String markerLatText = "Marker Latitude: " + MyConvert(pointt.latitude);
-        String markerLngText = "Marker Longitude: " + MyConvert(pointt.longitude);
+		String markerLatText = getString(R.string.Marker_Latitude) + " " + MyConvert(pointt.latitude);
+        String markerLngText = getString(R.string.Marker_Longitude) + " " + MyConvert(pointt.longitude);
 		
 		markerLat = (TextView) findViewById(R.id.TextView05);
 		markerLat.setText(markerLatText);
@@ -387,7 +387,7 @@ private OnClickListener ShareListener = new OnClickListener()
 		markerLng.setVisibility(View.VISIBLE);
 		
 		Button getButton = (Button)findViewById(R.id.sh);
-		getButton.setText("Share blue marker location");
+		getButton.setText(getString(R.string.Share_blue_marker_location));
 		
 		
 		}
@@ -406,7 +406,7 @@ private OnClickListener ShareListener = new OnClickListener()
 			customlocationmarker = null;
 			
 			Button getButton = (Button)findViewById(R.id.sh);
-			getButton.setText("Share your location");
+			getButton.setText(getString(R.string.Share_your_location));
 			
 			markerLat = (TextView) findViewById(R.id.TextView05);
 			markerLat.setVisibility(View.GONE);
@@ -422,14 +422,21 @@ private OnClickListener ShareListener = new OnClickListener()
 	
 	private String MyConvert(double value)
 	{
-		String converttosec = Location.convert(value , Location.FORMAT_SECONDS);
-		
-		 if (converttosec.indexOf('.') != -1)
-		    {
-			 converttosec = converttosec.substring(0, converttosec.indexOf('.'));
-		    }
+//		String converttosec = Location.convert(value , Location.FORMAT_SECONDS);
+//
+//		 if (converttosec.indexOf('.') != -1)
+//		    {
+//			 converttosec = converttosec.substring(0, converttosec.indexOf('.'));
+//		    }
+//
+//		 return converttosec;
 
-		 return converttosec;
+        int deg = (int) value;
+        value = Math.abs((value - deg)*60);
+        int min = (int) value;
+        value = (value - min)*60;
+        int sec = (int) value;
+        return String.format("%d:%02d:%02d", deg, min, sec);
 		
 	};
 	

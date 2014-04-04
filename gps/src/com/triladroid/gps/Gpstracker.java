@@ -96,55 +96,7 @@ public class Gpstracker extends TimerTask  {
         }  
     }
      
-    /*
-    public void stopUsingGPS(){
-        if(locationManager != null){
-            locationManager.removeUpdates(listener);
-            
-        }       
-    }
-     
-    public double getLatitude(){
-        if(location != null){
-            latitude = location.getLatitude();  
-        }
-        
-        return latitude;
-        
-    }
-     
-    public double getLongitude(){
-        if(location != null){
-            longitude = location.getLongitude();
-            
-        }
-         return longitude;
-    }
-     
-    public double getSpeed(){
-        if(location != null){
-            speed = location.getSpeed();
-            
-        }
-        
-        return speed;
-    }
-    
-    public double getaltitude(){
-        if(location != null){
-            altitude = location.getAltitude();
-            
-            
-        }
-        
-        return altitude;
-    }
-    
-    
-    public boolean canGetLocation() {
-        return this.canGetLocation;
-    }
-    */ 
+
     /**
      * Function to show settings alert dialog
      * On pressing Settings button will lauch Settings Options
