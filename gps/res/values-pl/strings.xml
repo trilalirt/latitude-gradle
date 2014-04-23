@@ -2,8 +2,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
 
     <string name="app_name">Latitude</string>
-    <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
+
     <string name="Share_your_location">Wyślij współrzędne</string>
     <string name="unknown">nieznana</string>
     <string name="Longitude">Długość: </string>

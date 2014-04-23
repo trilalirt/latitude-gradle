@@ -436,7 +436,7 @@ private OnClickListener ShareListener = new OnClickListener()
         int min = (int) value;
         value = (value - min)*60;
         int sec = (int) value;
-        return String.format("%d:%02d:%02d", deg, min, sec);
+        return String.format("%d°%02d'%02d\"", deg, min, sec);
 		
 	};
 	
